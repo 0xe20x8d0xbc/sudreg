@@ -1,0 +1,6 @@
+# Ignore Python cache directories
+__pycache__/
+
+# Ignore JetBrains IDE files
+.idea/
+*.iml

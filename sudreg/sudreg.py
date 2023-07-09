@@ -1,5 +1,6 @@
 import requests
 
+
 class SudskiRegistarAPI:
     def __init__(self, subscription_key):
         self.base_url = "https://sudreg-api.pravosudje.hr/javni"
@@ -110,7 +111,7 @@ class SudskiRegistarAPI:
         return response.json()
 
     def get_naziv_podruznice(self, offset, limit=None, timestamp_id=None):
-        endpoint = "/naziv_podruznice"
+        endpoint = "/naziv_podruznice/get"
         params = {"offset": offset}
         if limit is not None:
             params["limit"] = limit
@@ -197,17 +198,19 @@ class SudskiRegistarAPI:
         response.raise_for_status()  # Raises a HTTPError if the response was unsuccessful
         return response.json()
 
-    def get_sjediste(self, timestamp_id=None):
+    def get_sjediste(self, offset, limit=None, timestamp_id=None):
         endpoint = "/sjediste"
-        params = {}
+        params = {"offset": offset}
+        if limit is not None:
+            params["limit"] = limit
         if timestamp_id is not None:
             params["timestamp_id"] = timestamp_id
         response = requests.get(self.base_url + endpoint, headers=self.headers, params=params)
-        response.raise_for_status()
+        response.raise_for_status()  # Raises a HTTPError if the response was unsuccessful
         return response.json()
 
     def get_sjediste_podruznice(self, offset, limit=None, timestamp_id=None):
-        endpoint = "/sjediste_podruznice"
+        endpoint = "/sjediste_podruznice/get"
         params = {"offset": offset}
         if limit is not None:
             params["limit"] = limit
@@ -283,13 +286,15 @@ class SudskiRegistarAPI:
         response.raise_for_status()
         return response.json()
 
-    def get_temeljni_kapital(self, timestamp_id=None):
+    def get_temeljni_kapital(self, offset, limit=None, timestamp_id=None):
         endpoint = "/temeljni_kapital"
-        params = {}
+        params = {"offset": offset}
+        if limit is not None:
+            params["limit"] = limit
         if timestamp_id is not None:
             params["timestamp_id"] = timestamp_id
         response = requests.get(self.base_url + endpoint, headers=self.headers, params=params)
-        response.raise_for_status()
+        response.raise_for_status()  # Raises a HTTPError if the response was unsuccessful
         return response.json()
 
     def get_timestamp(self, timestamp_id=None):
@@ -301,13 +306,15 @@ class SudskiRegistarAPI:
         response.raise_for_status()
         return response.json()
 
-    def get_tvrtka(self, timestamp_id=None):
+    def get_tvrtka(self, offset, limit=None, timestamp_id=None):
         endpoint = "/tvrtka"
-        params = {}
+        params = {"offset": offset}
+        if limit is not None:
+            params["limit"] = limit
         if timestamp_id is not None:
             params["timestamp_id"] = timestamp_id
         response = requests.get(self.base_url + endpoint, headers=self.headers, params=params)
-        response.raise_for_status()
+        response.raise_for_status()  # Raises a HTTPError if the response was unsuccessful
         return response.json()
 
     def get_valuta(self, timestamp_id=None):

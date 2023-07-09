@@ -3,7 +3,6 @@ from setuptools import setup, find_packages
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
-
 setup(
     name='SudReg',
     version='1.0.0',
@@ -17,4 +16,5 @@ setup(
     install_requires=[
         'requests'
     ],
+    keywords='Sudski Registar, Sudski Registar API'
 )

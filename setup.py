@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='SudReg',
-    version='1.0.0',
+    version='1.0.1',
     url='https://github.com/0xe20x8d0xbc/sudreg',
     author='Your Name',
     author_email='0xe20x8d0xbc@gmail.com',
